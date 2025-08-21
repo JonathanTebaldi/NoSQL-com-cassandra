@@ -58,4 +58,12 @@ public class User {
     public void setAddressId(UUID addressId) {
         this.addressId = addressId;
     }
+
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
+    }
 }
