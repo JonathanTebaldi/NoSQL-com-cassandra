@@ -1,8 +1,10 @@
 package com.talkevents.cassandra.models;
 
+import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+import java.util.List;
 import java.util.UUID;
 @Table("users")
 public class User {
@@ -12,6 +14,10 @@ public class User {
     private int age;
     private String email;
     private UUID addressId;
+    @CassandraType(type = CassandraType.Name.LIST,
+            typeArguments = CassandraType.Name.UDT,
+            userTypeName = "phone")
+    private List<Phone> phones;
 
     public UUID getId() {
         return id;
